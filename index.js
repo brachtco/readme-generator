@@ -25,7 +25,6 @@ const questions = [
         type: 'input',
         name: 'title',
         message: 'What is the title of your project?'
-    },
 
     {
         type: 'input',
@@ -61,7 +60,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'From the list choose a license for your project.',
-        choices: ''
+        choices: ['Apache-2.0', 'ISC', 'MIT', 'PERL']
     },
 
     {
@@ -78,35 +77,25 @@ const questions = [
 
 ];
 
-//USER INPUT
-//What is title?
-//Enter and Display title of README
-
-//What is the description?
-//Enter description Add to sections
-
-//How do you install?
-//Enter installation instructions Add to section
-
-//What is the usage?
-//Enter usage information Add to section
-
-//How do you contribute?
-//Enter contribution guidelines Add to section
-
-//Tests?
-//Enter tests Add to section
-
-//Questions?
-//What is the license?
-//Choose license from list of options
-//Add badge to top of README Add license to section
-
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile('README.md', response) {
+    if(err) {
+        console.log(err);
+    } else {
+        console.log('README file created!')
+    }
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then((response) => {
+        console.log(response)
+    });
+    .catch((err) => {
+        console.log(err);
+    });
+}
 
 // Function call to initialize app
 init();
