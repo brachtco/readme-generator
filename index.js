@@ -19,14 +19,71 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+
+    {
+        type: 'input',
+        name: 'title',
+        message: 'What is the title of your project?'
+    },
+
+    {
+        type: 'input',
+        name: 'descritption',
+        message: 'Provide a description of your project.'
+    },
+
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Enter the instructions for installation.'
+    },
+
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Enter any usage information for the project.'
+    },
+
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'Provide guidelines for other developers contributing to the project.'
+    },
+
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Provide test instructions for your project.'
+    },
+
+    {
+        type: 'list',
+        name: 'license',
+        message: 'From the list choose a license for your project.',
+        choices: ''
+    },
+
+    {
+        type: 'input',
+        name: 'github',
+        message: 'What is your Github username?'
+    },
+
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?'
+    }
+
+];
 
 //USER INPUT
 //What is title?
 //Enter and Display title of README
 
 //What is the description?
-//Enter description Add to sectionls
+//Enter description Add to sections
 
 //How do you install?
 //Enter installation instructions Add to section
