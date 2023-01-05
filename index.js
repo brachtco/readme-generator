@@ -17,85 +17,83 @@ THEN I am taken to the corresponding section of the README*/
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
+const path = require("path");
 
 // TODO: Create an array of questions for user input
 const questions = [
+  {
+    type: "input",
+    name: "title",
+    message: "What is the title of your project?",
+  },
+  {
+    type: "input",
+    name: "description",
+    message: "Provide a description of your project.",
+  },
 
-    {
-        type: 'input',
-        name: 'title',
-        message: 'What is the title of your project?'
+  {
+    type: "input",
+    name: "installation",
+    message: "Enter the instructions for installation.",
+  },
 
-    {
-        type: 'input',
-        name: 'descritption',
-        message: 'Provide a description of your project.'
-    },
+  {
+    type: "input",
+    name: "usage",
+    message: "Enter any usage information for the project.",
+  },
 
-    {
-        type: 'input',
-        name: 'installation',
-        message: 'Enter the instructions for installation.'
-    },
+  {
+    type: "input",
+    name: "contributing",
+    message:
+      "Provide guidelines for other developers contributing to the project.",
+  },
 
-    {
-        type: 'input',
-        name: 'usage',
-        message: 'Enter any usage information for the project.'
-    },
+  {
+    type: "input",
+    name: "tests",
+    message: "Provide test instructions for your project.",
+  },
 
-    {
-        type: 'input',
-        name: 'contributing',
-        message: 'Provide guidelines for other developers contributing to the project.'
-    },
+  {
+    type: "list",
+    name: "license",
+    message: "From the list choose a license for your project.",
+    choices: ["Apache2.0", "ISC", "MIT", "PERL", "None"],
+  },
 
-    {
-        type: 'input',
-        name: 'tests',
-        message: 'Provide test instructions for your project.'
-    },
+  {
+    type: "input",
+    name: "github",
+    message: "What is your Github username?",
+  },
 
-    {
-        type: 'list',
-        name: 'license',
-        message: 'From the list choose a license for your project.',
-        choices: ['Apache-2.0', 'ISC', 'MIT', 'PERL']
-    },
-
-    {
-        type: 'input',
-        name: 'github',
-        message: 'What is your Github username?'
-    },
-
-    {
-        type: 'input',
-        name: 'email',
-        message: 'What is your email address?'
-    }
-
+  {
+    type: "input",
+    name: "email",
+    message: "What is your email address?",
+  },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile('README.md', response) {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log('README file created!')
-    }
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+
 }
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions)
-    .then((response) => {
-        console.log(response)
-    });
-    .catch((err) => {
-        console.log(err);
-    });
+  inquirer.prompt(questions)
+  .then((inquirerResponses) => {
+    console.log("Success! Readme file generated!");
+    writeToFile("GeneratedREADME.md", generateMarkdown({...inquirerResponses}));
+  });
 }
 
 // Function call to initialize app
 init();
+
+
