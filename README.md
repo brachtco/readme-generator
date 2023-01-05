@@ -26,7 +26,7 @@ MIT
 
 ## Links
 
-Screencast presentation of Readme Generator: chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/app.html#/files/b79131e7-55d9-4e40-y133-d305d9925c49
+Screencast presentation of Readme Generator: https://watch.screencastify.com/v/88aouSyOlNrhqCZyPiw5
 
 GitHub Repo: https://github.com/brachtco/readme-generator
 
