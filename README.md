@@ -22,12 +22,13 @@ The screen shots below shows the prompt of questions with answers. It also shows
 
 ## License
 
-
 MIT
 
 ## Links
 
-GitHub Repo: 
+Screencast presentation of Readme Generator: chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/app.html#/files/b79131e7-55d9-4e40-y133-d305d9925c49
+
+GitHub Repo: https://github.com/brachtco/readme-generator
 
 
 
